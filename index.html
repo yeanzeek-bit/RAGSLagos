@@ -8,7 +8,7 @@
         :root { --orange: #FF5F1F; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Helvetica Neue', sans-serif; background-color: #000; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
-        
+
         header { 
             background: rgba(0, 0, 0, 0.95); 
             padding: 10px 5%; 
@@ -16,7 +16,9 @@
             position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid #1a1a1a;
         }
+
         .logo-img { height: 50px; width: auto; }
+
         nav ul { list-style: none; display: flex; gap: 15px; align-items: center; }
         nav ul li a { color: #fff; text-decoration: none; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
 
@@ -28,10 +30,11 @@
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg');
             background-size: cover; background-position: center;
         }
+
         .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-family: 'Georgia', serif; font-style: italic; text-transform: lowercase; font-weight: normal; }
 
         .section { padding: 100px 5%; }
-        
+
         .category-title { 
             font-size: clamp(2rem, 8vw, 4.5rem); letter-spacing: 15px; text-align: center; color: #111; font-weight: 900; 
             margin-bottom: 60px; border-bottom: 1px solid #111; padding-bottom: 20px; text-transform: uppercase;
@@ -40,7 +43,7 @@
         .collection-container { margin-bottom: 120px; }
         .collection-title { font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff; font-weight: normal; }
         .collection-desc { font-size: 0.7rem; color: #666; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; }
-        
+
         .image-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
         .image-row img { width: 100%; height: 650px; object-fit: cover; border: 1px solid #1a1a1a; transition: 0.8s; filter: saturate(0.8); }
         .image-row img:hover { border-color: var(--orange); transform: translateY(-10px); filter: saturate(1.1); }
@@ -50,6 +53,7 @@
             background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center;
             box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
         }
+
         .wa-icon { width: 30px; height: 30px; }
 
         .commandments { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 60px auto; text-align: left; }
@@ -69,12 +73,15 @@
         }
     </style>
 </head>
+
 <body>
 
+<!-- WhatsApp floating button -->
 <a href="https://wa.me/2348166136524?text=Hello%20RAGS%20Lagos,%20I'm%20interested%20in%20your%20latest%20drop." class="wa-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
 </a>
 
+<!-- HEADER -->
 <header>
     <img src="https://i.postimg.cc/mD8fT9jL/RAGS-LOGO.png" alt="RAGS LAGOS" class="logo-img">
 
@@ -107,4 +114,87 @@
     </nav>
 </header>
 
-<!-- rest of your content stays EXACTLY the same -->
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>wear your becoming.</h1>
+        <p style="letter-spacing: 10px; font-size: 0.7rem; color: var(--orange); text-transform: uppercase;">Lagos Made. Globally Approved.</p>
+    </div>
+</section>
+
+<!-- JEANS -->
+<section class="section" id="jeans">
+    <h2 class="category-title">JEANS</h2>
+
+    <div class="collection-container">
+        <h2 class="collection-title">RAGS Sandstorm</h2>
+        <div class="image-row">
+            <img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg">
+            <img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg">
+            <img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg">
+        </div>
+    </div>
+
+    <div class="collection-container">
+        <h2 class="collection-title">RAGS Rockstar</h2>
+        <div class="image-row">
+            <img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg">
+            <img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg">
+            <img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg">
+        </div>
+    </div>
+</section>
+
+<!-- HANDBAGS -->
+<section class="section" id="handbags">
+    <h2 class="category-title">HANDBAGS</h2>
+
+    <div class="collection-container">
+        <h2 class="collection-title">Premium Edition</h2>
+        <div class="image-row">
+            <img src="https://i.postimg.cc/9QtwSKJR/IMG-5280.jpg">
+            <img src="https://i.postimg.cc/qvX6YSjg/IMG-5281.jpg">
+            <img src="https://i.postimg.cc/FHgkq8DY/IMG-5282.jpg">
+        </div>
+    </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="section" id="manifesto">
+    <div class="manifesto-box" style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h2 class="category-title" style="border:none;">Manifesto</h2>
+
+        <p style="font-family: 'Georgia', serif; font-size: 1.5rem; font-style: italic; color: #ccc;">
+            "RAGS Lagos was built for people who refuse to shrink themselves."
+        </p>
+
+        <div class="commandments">
+            <div class="command"><span class="num">01</span><span class="text">WE DO NOT COPY. WE CREATE.</span></div>
+            <div class="command"><span class="num">02</span><span class="text">QUALITY OVER EVERYTHING.</span></div>
+            <div class="command"><span class="num">03</span><span class="text">LAGOS HEART, GLOBAL STANDARDS.</span></div>
+            <div class="command"><span class="num">04</span><span class="text">WEAR YOUR ARMOR.</span></div>
+            <div class="command"><span class="num">05</span><span class="text">NOT FOR EVERYONE.</span></div>
+            <div class="command"><span class="num">06</span><span class="text">IDENTITY IS CURRENCY.</span></div>
+            <div class="command"><span class="num">07</span><span class="text">CRAFTED FOR THE BECOMING.</span></div>
+            <div class="command"><span class="num">08</span><span class="text">DETERMINED BY GRIT.</span></div>
+            <div class="command"><span class="num">09</span><span class="text">STREET LUXURY EVOLVED.</span></div>
+            <div class="command"><span class="num">10</span><span class="text">THE KULT IS FOREVER.</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- JOIN -->
+<section class="kult-signup" id="join">
+    <h2 style="font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 25px;">Join the Kult</h2>
+    <div style="margin-top: 20px;">
+        <a href="https://instagram.com/ragslagos" target="_blank" class="social-link">INSTAGRAM</a>
+        <a href="https://tiktok.com/@ragslagos" target="_blank" class="social-link">TIKTOK</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 RAGS LAGOS. FOR LEGENDS IN REAL TIME.</p>
+</footer>
+
+</body>
+</html>

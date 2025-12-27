@@ -5,67 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAGS LAGOS | Premium Denim</title>
     <style>
-        :root { --orange: #FF5F1F; --navy: #000c1a; }
+        :root { --orange: #FF5F1F; --black: #000; --dark-grey: #0a0a0a; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', sans-serif; background-color: #000; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--black); color: #fff; line-height: 1.6; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
         header { 
-            background: rgba(0, 0, 0, 0.95); 
-            padding: 10px 5%; 
+            background: rgba(0, 0, 0, 0.98); padding: 10px 5%; 
             display: flex; justify-content: space-between; align-items: center; 
             position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid #111;
         }
-        .logo-img { height: 45px; width: auto; }
-        nav ul { list-style: none; display: flex; gap: 15px; align-items: center; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; }
+        .logo-img { height: 42px; width: auto; }
+        nav ul { list-style: none; display: flex; gap: 18px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
 
         .hero { 
-            height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg');
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg');
             background-size: cover; background-position: center;
         }
-        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-family: 'Georgia', serif; font-style: italic; margin-bottom: 10px; text-transform: lowercase; font-weight: normal; }
+        .hero h1 { font-size: clamp(3rem, 12vw, 7rem); font-family: 'Georgia', serif; font-style: italic; font-weight: normal; margin-bottom: 15px; }
 
-        .section { padding: 120px 8%; scroll-margin-top: 60px; }
-
-        .category-title { 
-            font-size: clamp(2rem, 8vw, 4rem); letter-spacing: 15px; text-align: center; color: #111; font-weight: 900; 
-            margin-bottom: 60px; border-bottom: 1px solid #111; padding-bottom: 20px;
-        }
+        .section { padding: 140px 5% 80px; scroll-margin-top: 50px; }
+        .category-title { font-size: clamp(2rem, 10vw, 5rem); letter-spacing: 25px; text-align: center; color: #0a0a0a; font-weight: 900; margin-bottom: 80px; border-bottom: 1px solid #0a0a0a; }
 
         .collection-container { margin-bottom: 120px; }
-        .collection-title { font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; text-align: left; color: #fff; font-weight: normal; }
-        .collection-desc { font-size: 0.7rem; color: #666; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; }
+        .collection-title { font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; font-weight: normal; color: #fff; }
+        .collection-desc { font-size: 0.7rem; color: #555; margin-bottom: 40px; letter-spacing: 3px; text-transform: uppercase; }
 
         .image-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .image-row img { width: 100%; height: 650px; object-fit: cover; border: 1px solid #1a1a1a; transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1); filter: saturate(0.8); }
-        .image-row img:hover { border-color: var(--orange); transform: translateY(-10px); filter: saturate(1.1); }
+        .img-wrapper { position: relative; overflow: hidden; height: 650px; background: #050505; border: 1px solid #111; }
+        .image-row img { width: 100%; height: 100%; object-fit: cover; transition: 1.2s cubic-bezier(0.2, 1, 0.2, 1); filter: grayscale(20%); }
+        .img-wrapper:hover img { transform: scale(1.05); filter: grayscale(0%); }
 
-        .wa-float {
-            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
-            background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center; text-decoration: none;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+        /* SOLD OUT SYSTEM */
+        .sold-out-badge { 
+            position: absolute; top: 20px; right: 20px; background: rgba(255, 95, 31, 0.9); 
+            color: #fff; padding: 5px 15px; font-size: 0.6rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; z-index: 10;
         }
+        .sold-out-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3); z-index: 5; pointer-events: none;
+        }
+
+        .wa-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center; box-shadow: 0px 10px 20px rgba(0,0,0,0.5); }
         .wa-icon { width: 30px; height: 30px; }
+
+        .text-block { max-width: 800px; margin: 0 auto; text-align: center; }
+        .text-block h2 { color: var(--orange); letter-spacing: 8px; font-size: 1.2rem; margin-bottom: 30px; text-transform: uppercase; }
+        .text-block p { color: #888; font-size: 1rem; line-height: 2; }
 
         .kult-signup { background: #000; padding: 150px 10%; text-align: center; border-top: 1px solid #111; }
         .email-box { display: flex; max-width: 500px; margin: 40px auto; border: 1px solid #222; }
-        .email-box input { background: transparent; border: none; padding: 20px; color: #fff; flex: 1; outline: none; }
-        .email-box button { background: var(--orange); border: none; color: #fff; padding: 0 35px; text-transform: uppercase; font-weight: bold; cursor: pointer; }
+        .email-box input { background: transparent; border: none; padding: 20px; color: #fff; flex: 1; outline: none; font-size: 0.8rem; }
+        .email-box button { background: var(--orange); border: none; color: #fff; padding: 0 30px; text-transform: uppercase; font-weight: bold; cursor: pointer; letter-spacing: 2px; }
 
-        /* Social Icon Styling */
-        .social-icons-wrapper { margin-top: 30px; display:flex; gap:25px; justify-content:center; }
-        .social-icons-wrapper svg { transition: 0.3s; stroke: var(--orange); }
-        .social-icons-wrapper .tt-icon { fill: var(--orange); }
-        .social-icons-wrapper a:hover svg { transform: scale(1.2); stroke: #fff; }
-        .social-icons-wrapper a:hover .tt-icon { fill: #fff; }
+        .social-icons { margin-top: 40px; display: flex; gap: 30px; justify-content: center; }
+        .social-icons svg { stroke: var(--orange); transition: 0.4s; }
+        .social-icons a:hover svg { stroke: #fff; transform: translateY(-5px); }
 
-        footer { padding: 80px 5%; text-align: center; font-size: 0.6rem; color: #111; border-top: 1px solid #050505; letter-spacing: 4px; }
+        footer { padding: 60px 5%; text-align: center; font-size: 0.55rem; color: #111; letter-spacing: 5px; border-top: 1px solid #050505; }
 
         @media (max-width: 768px) {
-            .image-row { grid-template-columns: 1fr; gap: 30px; }
-            .image-row img { height: 450px; }
+            .image-row { grid-template-columns: 1fr; }
+            .img-wrapper { height: 500px; }
+            .category-title { font-size: 2rem; letter-spacing: 10px; }
+            header { padding: 10px 3%; }
+            nav ul { gap: 10px; }
         }
     </style>
 </head>
@@ -83,7 +89,6 @@
             <li><a href="#about">About</a></li>
             <li><a href="#manifesto">Manifesto</a></li>
             <li><a href="https://instagram.com/ragslagos" target="_blank">IG</a></li>
-            <li><a href="https://tiktok.com/@ragslagos" target="_blank">TT</a></li>
         </ul>
     </nav>
 </header>
@@ -91,81 +96,73 @@
 <section class="hero">
     <div class="hero-content">
         <h1>wear your becoming.</h1>
-        <p style="letter-spacing: 10px; font-size: 0.7rem; color: var(--orange); text-transform: uppercase;">Lagos Made. Globally Approved.</p>
+        <p style="letter-spacing: 12px; font-size: 0.7rem; color: var(--orange); text-transform: uppercase;">Lagos Made. Globally Approved.</p>
     </div>
 </section>
 
 <section class="section" id="collections">
     <h2 class="category-title">JEANS</h2>
+
     <div class="collection-container">
         <h2 class="collection-title">RAGS Sandstorm</h2>
-        <p class="collection-desc">Earth Tones. Limited Craft. Unapologetic Identity.</p>
+        <p class="collection-desc">Earth Tones. Subtle Luxury.</p>
         <div class="image-row">
-            <img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg" alt="Sandstorm 1">
-            <img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg" alt="Sandstorm 2">
-            <img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg" alt="Sandstorm 3">
+            <div class="img-wrapper"><img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg"></div>
+            <div class="img-wrapper"><img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg"></div>
+            <div class="img-wrapper"><img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg"></div>
         </div>
     </div>
+
     <div class="collection-container">
-        <h2 class="collection-title">RAGS Rockstar</h2>
-        <p class="collection-desc">Premium Raw Denim. Signature Kult Series.</p>
+        <h2 class="collection-title">RAGS dRAGony</h2>
+        <p class="collection-desc">Hand-Finished Storytelling. Limited Craft.</p>
         <div class="image-row">
-            <img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg" alt="Rockstar 1">
-            <img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg" alt="Rockstar 2">
-            <img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg" alt="Rockstar 3">
+            <div class="img-wrapper">
+                <span class="sold-out-badge">Sold Out</span>
+                <div class="sold-out-overlay"></div>
+                <img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg">
+            </div>
+            <div class="img-wrapper">
+                <span class="sold-out-badge">Sold Out</span>
+                <div class="sold-out-overlay"></div>
+                <img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg">
+            </div>
+            <div class="img-wrapper">
+                <span class="sold-out-badge">Sold Out</span>
+                <div class="sold-out-overlay"></div>
+                <img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg">
+            </div>
         </div>
     </div>
 </section>
 
 <section class="section" id="manifesto">
-    <h2 style="text-align:center; letter-spacing:8px; font-size:1.5rem; margin-bottom:40px; color: var(--orange);">BRAND MANIFESTO</h2>
-    <p style="max-width:800px; margin:0 auto; text-align:center; font-size:1.1rem; color:#eee; line-height:1.8; font-family: 'Georgia', serif; font-style: italic;">
-        "RAGS Lagos was built for people who refuse to shrink themselves. Inspired by Lagos grit and global dreams—for the ones who create their own lane, speak with quiet confidence, and wear their identity like armor."
-    </p>
+    <div class="text-block">
+        <h2>Manifesto</h2>
+        <p style="font-family: 'Georgia', serif; font-style: italic; color: #eee; font-size: 1.2rem;">"RAGS Lagos was built for people who refuse to shrink themselves. We are inspired by Lagos grit and global dreams—the ones who wear their identity like armor."</p>
+    </div>
 </section>
 
 <section class="section" id="about" style="background:#050505;">
-    <h2 style="text-align:center; letter-spacing:8px; font-size:1.5rem; margin-bottom:30px;">ABOUT RAGS LAGOS</h2>
-    <p style="max-width:800px; margin:0 auto; text-align:center; font-size:0.9rem; color:#888; line-height:2; letter-spacing: 0.5px;">
-        RAGS Lagos is a premium Lagos-born denim brand creating limited, high-quality pieces for people who refuse to blend in. We design for quiet rebels, creatives, and leaders becoming the best version of themselves. Every RAGS piece is crafted with intention—combining raw edge with subtle luxury.
-    </p>
-</section>
-
-<section class="section">
-    <h2 style="text-align:center; letter-spacing:8px; font-size:1.5rem; margin-bottom:50px;">THE COMMANDMENTS</h2>
-    <div style="max-width:700px; margin:0 auto; columns: 2; column-gap: 40px; color:#666; font-size:0.75rem; text-transform: uppercase; letter-spacing: 1px;">
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">01</b> We do not copy. We create.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">02</b> Quality first — always.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">03</b> If everyone has it, we don’t want it.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">04</b> Confidence is the dress code.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">05</b> Lagos creativity, premium standards.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">06</b> No loud desperation. Quiet excellence only.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">07</b> Every piece must feel like a story.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">08</b> Authenticity over hype.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">09</b> Community, not crowd.</p>
-        <p style="margin-bottom: 20px;"><b style="color:var(--orange)">10</b> Outlive the trends.</p>
+    <div class="text-block">
+        <h2>About The House</h2>
+        <p>A premium Lagos-born denim brand creating limited, high-quality pieces for quiet rebels, creatives, and leaders. Every RAGS piece is crafted with intention — combining raw edge with subtle luxury.</p>
     </div>
 </section>
 
 <section class="kult-signup" id="join">
-    <h2 style="font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 15px; font-weight: normal;">Join the Kult</h2>
+    <h2 style="font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; font-weight: normal;">Join the Kult</h2>
+    <p style="color: #444; text-transform: uppercase; font-size: 0.6rem; letter-spacing: 3px; margin-bottom: 30px;">Access secret releases.</p>
     <div class="email-box">
-        <input type="email" placeholder="Email Address">
-        <button>Submit</button>
+        <input type="email" placeholder="EMAIL ADDRESS">
+        <button>JOIN</button>
     </div>
-    
-    <div class="social-icons-wrapper">
+    <div class="social-icons">
         <a href="https://instagram.com/ragslagos" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
         </a>
         <a href="https://tiktok.com/@ragslagos" target="_blank">
-            <svg class="tt-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48">
-                <path d="M33.3 10.2c1.7 1.6 3.8 2.8 6.2 3.1v6.5c-2.4-.1-4.7-.8-6.8-2v13.5c0 12.1-13.2 15.8-19 8.1-4-5.3-2-14.6 6.6-16v6.6c-3.7 1.1-3 6.3.9 6.3 2.2 0 3.9-1.8 3.9-4V6.5h8.2v3.7z"/>
-            </svg>
+            <svg style="stroke:none; fill:var(--orange)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M33.3 10.2c1.7 1.6 3.8 2.8 6.2 3.1v6.5c-2.4-.1-4.7-.8-6.8-2v13.5c0 12.1-13.2 15.8-19 8.1-4-5.3-2-14.6 6.6-16v6.6c-3.7 1.1-3 6.3.9 6.3 2.2 0 3.9-1.8 3.9-4V6.5h8.2v3.7z"/></svg>
         </a>
     </div>
 </section>

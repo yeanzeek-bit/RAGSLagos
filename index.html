@@ -6,28 +6,27 @@
     <title>RAGS LAGOS | Premium Denim</title>
     <style>
         :root {
-            --navy: #002D62;
+            --navy: #000c1a; /* Deeper for luxury */
             --orange: #FF5F1F;
-            --ivory: #FCFAFA;
+            --ivory: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            background-color: var(--ivory); 
-            color: var(--navy); 
+            background-color: #000; /* Dark background for the 'Kult' vibe */
+            color: #fff; 
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Luxury Fade-In Animation */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         header { 
-            background: rgba(252, 250, 250, 0.95); 
-            padding: 20px 5%; 
+            background: rgba(0, 0, 0, 0.9); 
+            padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -35,13 +34,13 @@
             width: 100%; 
             top: 0; 
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 45, 98, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo { font-size: 1.4rem; letter-spacing: 8px; font-weight: 900; text-transform: uppercase; }
+        .logo-img { height: 60px; width: auto; }
         
-        nav ul { list-style: none; display: flex; gap: 30px; }
-        nav ul li { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; font-weight: bold; cursor: pointer; }
+        nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        nav ul li { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; font-weight: bold; cursor: pointer; color: #fff; }
 
         .hero { 
             height: 100vh; 
@@ -49,126 +48,102 @@
             align-items: center; 
             justify-content: center; 
             text-align: center;
-            background: linear-gradient(rgba(0, 45, 98, 0.8), rgba(0, 45, 98, 0.8)), url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1500&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=2574&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            color: white;
             padding: 0 10%;
         }
 
-        .hero-content h2 { font-size: 0.9rem; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 20px; color: var(--orange); }
-        .hero-content h1 { font-size: clamp(3rem, 10vw, 6rem); font-family: 'Georgia', serif; font-style: italic; margin-bottom: 30px; font-weight: normal; }
+        .hero-content h2 { font-size: 0.8rem; letter-spacing: 12px; text-transform: uppercase; margin-bottom: 20px; color: var(--orange); }
+        .hero-content h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-family: 'Georgia', serif; margin-bottom: 30px; font-weight: normal; letter-spacing: -1px; }
 
         .btn-luxury { 
             padding: 18px 45px; 
-            border: 1px solid white; 
-            color: white; 
+            border: 1px solid var(--orange); 
+            color: #fff; 
             text-decoration: none; 
             text-transform: uppercase; 
             letter-spacing: 4px; 
             font-size: 0.7rem; 
             transition: 0.4s;
+            background: rgba(255, 95, 31, 0.1);
         }
 
-        .btn-luxury:hover { background: white; color: var(--navy); }
+        .btn-luxury:hover { background: var(--orange); color: #fff; }
 
-        .section-label { font-size: 0.7rem; letter-spacing: 8px; text-transform: uppercase; color: var(--orange); margin-bottom: 50px; display: block; }
+        .section { padding: 120px 10%; background: #000; }
+        .section-label { font-size: 0.7rem; letter-spacing: 8px; text-transform: uppercase; color: var(--orange); margin-bottom: 60px; display: block; text-align: center; }
 
-        .manifesto-section { padding: 150px 10%; text-align: center; background: white; }
-        .manifesto-text { font-size: 1.8rem; font-family: 'Georgia', serif; max-width: 900px; margin: 0 auto; line-height: 1.4; color: var(--navy); }
-
-        .commandments-grid { 
+        /* PRODUCT GALLERY GRID */
+        .gallery-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 0; 
-            border-top: 1px solid rgba(0, 45, 98, 0.1);
+            gap: 20px; 
         }
 
-        .rule-card { 
-            padding: 60px 40px; 
-            border-bottom: 1px solid rgba(0, 45, 98, 0.1); 
-            border-right: 1px solid rgba(0, 45, 98, 0.1);
-            transition: 0.3s;
-        }
-        
-        .rule-card:hover { background: var(--navy); color: white; }
-        .rule-num { font-size: 0.7rem; color: var(--orange); margin-bottom: 20px; display: block; font-weight: bold; }
+        .product-card { background: #0a0a0a; padding-bottom: 30px; border: 1px solid #1a1a1a; transition: 0.4s; position: relative; overflow: hidden; }
+        .product-card:hover { border-color: var(--orange); }
+        .product-img { width: 100%; height: 450px; background: #1a1a1a; object-fit: cover; margin-bottom: 20px; opacity: 0.8; }
+        .product-card h3 { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 10px; }
+        .product-card p { font-size: 0.7rem; color: #888; text-align: center; letter-spacing: 1px; }
 
-        footer { padding: 100px 5%; background: var(--navy); color: white; text-align: center; }
-        .footer-logo { font-size: 2rem; letter-spacing: 12px; margin-bottom: 30px; opacity: 0.8; }
+        footer { padding: 80px 5%; border-top: 1px solid #1a1a1a; text-align: center; background: #000; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">RAGS</div>
+    <img src="https://i.postimg.cc/mD8fT9jL/RAGS-LOGO.png" alt="RAGS LAGOS" class="logo-img">
     <nav>
         <ul>
-            <li>Collections</li>
+            <li>The Drop</li>
             <li>Manifesto</li>
-            <li style="color: var(--orange);">Kult</li>
+            <li style="color: var(--orange);">Enter Kult</li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h2 class="reveal active">Lagos Born. Globally Approved.</h2>
+        <h2 class="reveal active">Lagos Made. Globally Approved.</h2>
         <h1 class="reveal active">Wear your becoming.</h1>
-        <a href="#" class="btn-luxury reveal active">Enter the Kult</a>
+        <a href="#drop" class="btn-luxury reveal active">View Collection</a>
     </div>
 </section>
 
-<section class="manifesto-section">
-    <span class="section-label">The Manifesto</span>
-    <p class="manifesto-text reveal active">"Every piece is crafted with intention, not mass-produced for noise. We believe in raw authenticity, premium quality, and clothes that feel like becoming your boldest self."</p>
-</section>
-
-<section style="background: white;">
-    <span class="section-label" style="text-align: center; padding-top: 100px;">The Ten Commandments</span>
-    <div class="commandments-grid">
-        <div class="rule-card">
-            <span class="rule-num">I</span>
-            <p>We do not copy. We create.</p>
+<section class="section" id="drop">
+    <span class="section-label">Latest Drop</span>
+    <div class="gallery-grid">
+        <div class="product-card reveal">
+            <div class="product-img"></div> <h3>Rockstar RAGS Kult</h3>
+            <p>Signature Denim Series</p>
         </div>
-        <div class="rule-card">
-            <span class="rule-num">II</span>
-            <p>Quality first — always.</p>
+        <div class="product-card reveal">
+            <div class="product-img"></div>
+            <h3>Ivory Dust</h3>
+            <p>Limited Edition Craft</p>
         </div>
-        <div class="rule-card">
-            <span class="rule-num">III</span>
-            <p>If everyone has it, we don’t want it.</p>
-        </div>
-        <div class="rule-card">
-            <span class="rule-num">IV</span>
-            <p>Confidence is the dress code.</p>
-        </div>
-        <div class="rule-card">
-            <span class="rule-num">V</span>
-            <p>Lagos creativity, premium standards.</p>
-        </div>
-        <div class="rule-card">
-            <span class="rule-num">VI</span>
-            <p>No loud desperation. Quiet excellence only.</p>
+        <div class="product-card reveal">
+            <div class="product-img"></div>
+            <h3>Ragron Dragon</h3>
+            <p>Hand-Finished Storytelling</p>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="footer-logo">RAGS LAGOS</div>
-    <p style="letter-spacing: 5px; font-size: 0.6rem; opacity: 0.6;">© 2025 ALL RIGHTS RESERVED. CRAFTED IN LAGOS.</p>
+    <img src="https://i.postimg.cc/mD8fT9jL/RAGS-LOGO.png" alt="RAGS LAGOS" style="height: 40px; margin-bottom: 20px; opacity: 0.5;">
+    <p style="letter-spacing: 5px; font-size: 0.6rem; opacity: 0.4;">© 2025 RAGS LAGOS. NOT FOR EVERYONE.</p>
 </footer>
 
 <script>
-    // Simple script to make text fade in as you scroll
     window.addEventListener('scroll', reveal);
     function reveal() {
         var reveals = document.querySelectorAll('.reveal');
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
             var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
+            if (elementTop < windowHeight - 100) {
                 reveals[i].classList.add('active');
             }
         }

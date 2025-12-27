@@ -16,8 +16,8 @@
             border-bottom: 1px solid #111;
         }
         .logo-img { height: 42px; width: auto; }
-        nav ul { list-style: none; display: flex; gap: 18px; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+        nav ul { list-style: none; display: flex; gap: 15px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; }
 
         .hero { 
             height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
@@ -26,8 +26,8 @@
         }
         .hero h1 { font-size: clamp(3rem, 12vw, 7rem); font-family: 'Georgia', serif; font-style: italic; font-weight: normal; margin-bottom: 15px; }
 
-        .section { padding: 140px 5% 80px; scroll-margin-top: 50px; }
-        .category-title { font-size: clamp(2rem, 10vw, 5rem); letter-spacing: 25px; text-align: center; color: #0a0a0a; font-weight: 900; margin-bottom: 80px; border-bottom: 1px solid #0a0a0a; }
+        .section { padding: 120px 8%; scroll-margin-top: 60px; }
+        .category-title { font-size: clamp(2rem, 10vw, 5rem); letter-spacing: 20px; text-align: center; color: #0c0c0c; font-weight: 900; margin-bottom: 80px; border-bottom: 1px solid #0c0c0c; }
 
         .collection-container { margin-bottom: 120px; }
         .collection-title { font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; font-weight: normal; color: #fff; }
@@ -42,22 +42,22 @@
             position: absolute; top: 20px; right: 20px; background: var(--orange); 
             color: #fff; padding: 5px 15px; font-size: 0.6rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; z-index: 10;
         }
-        .sold-out-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); z-index: 5; pointer-events: none;
-        }
+        .sold-out-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 5; pointer-events: none; }
 
         .wa-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center; box-shadow: 0px 10px 20px rgba(0,0,0,0.5); }
         .wa-icon { width: 30px; height: 30px; }
 
         .text-block { max-width: 800px; margin: 0 auto; text-align: center; }
-        .text-block h2 { color: var(--orange); letter-spacing: 8px; font-size: 1.2rem; margin-bottom: 30px; text-transform: uppercase; }
-        .text-block p { color: #888; font-size: 1rem; line-height: 2; }
+        .text-block h2 { color: var(--orange); letter-spacing: 8px; font-size: 1.5rem; margin-bottom: 30px; text-transform: uppercase; }
+        .text-block p { color: #eee; font-size: 1rem; line-height: 2; }
+
+        .commandments-grid { max-width:800px; margin:0 auto; columns: 2; column-gap: 40px; color:#666; font-size:0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .commandments-grid p { margin-bottom: 20px; }
 
         .kult-signup { background: #000; padding: 150px 10%; text-align: center; border-top: 1px solid #111; }
         .email-box { display: flex; max-width: 500px; margin: 40px auto; border: 1px solid #222; }
         .email-box input { background: transparent; border: none; padding: 20px; color: #fff; flex: 1; outline: none; }
-        .email-box button { background: var(--orange); border: none; color: #fff; padding: 0 30px; text-transform: uppercase; font-weight: bold; cursor: pointer; letter-spacing: 2px; }
+        .email-box button { background: var(--orange); border: none; color: #fff; padding: 0 35px; text-transform: uppercase; font-weight: bold; cursor: pointer; }
 
         .social-icons { margin-top: 40px; display: flex; gap: 30px; justify-content: center; }
         .social-icons svg { stroke: var(--orange); transition: 0.4s; }
@@ -68,7 +68,7 @@
         @media (max-width: 768px) {
             .image-row { grid-template-columns: 1fr; }
             .img-wrapper { height: 500px; }
-            .category-title { font-size: 2rem; letter-spacing: 10px; }
+            .commandments-grid { columns: 1; text-align: left; }
         }
     </style>
 </head>
@@ -83,8 +83,8 @@
     <nav>
         <ul>
             <li><a href="#collections">Drops</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#manifesto">Manifesto</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="https://instagram.com/ragslagos" target="_blank">IG</a></li>
         </ul>
     </nav>
@@ -102,7 +102,7 @@
 
     <div class="collection-container">
         <h2 class="collection-title">RAGS Sandstorm</h2>
-        <p class="collection-desc">Earth Tones. Subtle Luxury.</p>
+        <p class="collection-desc">Earth Tones. Limited Craft.</p>
         <div class="image-row">
             <div class="img-wrapper"><img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg"></div>
             <div class="img-wrapper"><img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg"></div>
@@ -122,23 +122,11 @@
 
     <div class="collection-container">
         <h2 class="collection-title">RAGS dRAGony</h2>
-        <p class="collection-desc">Limited Release. Hand-Finished Craft.</p>
+        <p class="collection-desc">Archive Collection. Hand-Finished Craft.</p>
         <div class="image-row">
-            <div class="img-wrapper">
-                <span class="sold-out-badge">Sold Out</span>
-                <div class="sold-out-overlay"></div>
-                <img src="https://via.placeholder.com/650x800/050505/555555?text=dRAGony+1">
-            </div>
-            <div class="img-wrapper">
-                <span class="sold-out-badge">Sold Out</span>
-                <div class="sold-out-overlay"></div>
-                <img src="https://via.placeholder.com/650x800/050505/555555?text=dRAGony+2">
-            </div>
-            <div class="img-wrapper">
-                <span class="sold-out-badge">Sold Out</span>
-                <div class="sold-out-overlay"></div>
-                <img src="https://via.placeholder.com/650x800/050505/555555?text=dRAGony+3">
-            </div>
+            <div class="img-wrapper"><span class="sold-out-badge">Sold Out</span><div class="sold-out-overlay"></div><img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg"></div>
+            <div class="img-wrapper"><span class="sold-out-badge">Sold Out</span><div class="sold-out-overlay"></div><img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg"></div>
+            <div class="img-wrapper"><span class="sold-out-badge">Sold Out</span><div class="sold-out-overlay"></div><img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg"></div>
         </div>
     </div>
 </section>
@@ -146,14 +134,32 @@
 <section class="section" id="manifesto">
     <div class="text-block">
         <h2>Manifesto</h2>
-        <p style="font-family: 'Georgia', serif; font-style: italic; color: #eee; font-size: 1.2rem;">"RAGS Lagos was built for people who refuse to shrink themselves. We are inspired by Lagos grit and global dreams—the ones who wear their identity like armor."</p>
+        <p style="font-family: 'Georgia', serif; font-style: italic;">"RAGS Lagos was built for people who refuse to shrink themselves. Inspired by Lagos grit and global dreams—the ones who create their own lane and wear their identity like armor."</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="text-block">
+        <h2 style="color:var(--orange)">The Commandments</h2>
+        <div class="commandments-grid">
+            <p>01. We do not copy. We create.</p>
+            <p>02. Quality first — always.</p>
+            <p>03. If everyone has it, we don’t want it.</p>
+            <p>04. Confidence is the dress code.</p>
+            <p>05. Lagos creativity, premium standards.</p>
+            <p>06. No loud desperation. Quiet excellence only.</p>
+            <p>07. Every piece must feel like a story.</p>
+            <p>08. Authenticity over hype.</p>
+            <p>09. Community, not crowd.</p>
+            <p>10. Outlive the trends.</p>
+        </div>
     </div>
 </section>
 
 <section class="section" id="about" style="background:#050505;">
     <div class="text-block">
         <h2>About The House</h2>
-        <p>A premium Lagos-born denim brand creating limited, high-quality pieces for quiet rebels, creatives, and leaders. Every RAGS piece is crafted with intention — combining raw edge with subtle luxury.</p>
+        <p style="color:#888;">RAGS Lagos is a premium Lagos-born denim brand creating limited, high-quality pieces for quiet rebels, creatives, and leaders becoming the best version of themselves.</p>
     </div>
 </section>
 

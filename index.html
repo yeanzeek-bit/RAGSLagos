@@ -3,79 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAGS LAGOS | Premium Athletics</title>
+    <title>RAGS LAGOS | Premium Denim & Athletics</title>
     <style>
-        :root { --orange: #FF5F1F; --red: #FF0000; --black: #000; --dark-grey: #0a0a0a; }
+        :root { --orange: #FF5F1F; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--black); color: #fff; line-height: 1.6; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-
-        header { 
-            background: rgba(0, 0, 0, 0.98); padding: 10px 5%; 
-            display: flex; justify-content: space-between; align-items: center; 
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            border-bottom: 1px solid #111;
-        }
-        .logo-img { height: 42px; width: auto; }
-        nav ul { list-style: none; display: flex; gap: 15px; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: bold; }
-
-        .hero { 
-            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://i.postimg.cc/bYtJW4vG/IMG-5645.png');
-            background-size: cover; background-position: center;
-        }
-        .hero h1 { font-size: clamp(3rem, 12vw, 7rem); font-family: 'Georgia', serif; font-style: italic; font-weight: normal; margin-bottom: 15px; }
-
-        .section { padding: 120px 8%; scroll-margin-top: 60px; }
-        .category-title { font-size: clamp(2rem, 10vw, 5rem); letter-spacing: 20px; text-align: center; color: #0c0c0c; font-weight: 900; margin-bottom: 80px; border-bottom: 1px solid #0c0c0c; text-transform: uppercase; }
-
+        body { font-family: 'Helvetica Neue', sans-serif; background-color: #000; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
+        header { background: rgba(0, 0, 0, 0.95); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #1a1a1a; }
+        .logo-img { height: 50px; width: auto; }
+        nav ul { list-style: none; display: flex; gap: 15px; align-items: center; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+        .hero { height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg'); background-size: cover; background-position: center; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-family: 'Georgia', serif; font-style: italic; text-transform: lowercase; font-weight: normal; }
+        .section { padding: 100px 5%; }
+        .category-title { font-size: clamp(2rem, 8vw, 4rem); letter-spacing: 15px; text-align: center; color: #111; font-weight: 900; margin-bottom: 60px; border-bottom: 1px solid #111; padding-bottom: 20px; }
         .collection-container { margin-bottom: 120px; }
-        .collection-title { font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; font-weight: normal; color: #fff; }
-        .collection-desc { font-size: 0.7rem; color: #555; margin-bottom: 40px; letter-spacing: 3px; text-transform: uppercase; }
-
-        .image-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 15px; }
-        .img-wrapper { position: relative; overflow: hidden; height: 650px; background: #050505; border: 1px solid #111; }
-        .image-row img { width: 100%; height: 100%; object-fit: cover; transition: 1.2s cubic-bezier(0.2, 1, 0.2, 1); filter: grayscale(15%); }
-        .img-wrapper:hover img { transform: scale(1.05); filter: grayscale(0%); }
-
-        .sold-out-badge { 
-            position: absolute; top: 20px; right: 20px; background: var(--orange); 
-            color: #fff; padding: 5px 15px; font-size: 0.6rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; z-index: 10;
-        }
-        .sold-out-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 5; pointer-events: none; }
-
-        .wa-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center; box-shadow: 0px 10px 20px rgba(0,0,0,0.5); }
+        .collection-title { font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; color: #fff; font-weight: normal; }
+        .collection-desc { font-size: 0.7rem; color: #666; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; }
+        .image-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .image-row img { width: 100%; height: 650px; object-fit: cover; border: 1px solid #1a1a1a; transition: 0.8s; filter: saturate(0.8); }
+        .image-row img:hover { border-color: var(--orange); transform: translateY(-10px); filter: saturate(1.1); }
+        .wa-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 15px rgba(0,0,0,0.5); }
         .wa-icon { width: 30px; height: 30px; }
-
-        .text-block { max-width: 800px; margin: 0 auto; text-align: center; }
-        .text-block h2 { color: var(--orange); letter-spacing: 8px; font-size: 1.5rem; margin-bottom: 30px; text-transform: uppercase; }
-        .text-block p { color: #eee; font-size: 1rem; line-height: 2; }
-
-        .commandments-grid { max-width:800px; margin:0 auto; columns: 2; column-gap: 40px; color:#666; font-size:0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-        .commandments-grid p { margin-bottom: 20px; }
-        .commandments-grid b { color: var(--red); font-size: 0.85rem; margin-right: 5px; }
-
+        .manifesto-box { max-width: 800px; margin: 0 auto; text-align: center; }
+        .manifesto-text { font-family: 'Georgia', serif; font-size: 1.5rem; font-style: italic; color: #ccc; }
+        .commandments { margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .command { font-size: 0.8rem; border-left: 1px solid var(--orange); padding-left: 15px; margin-bottom: 10px; }
         .kult-signup { background: #000; padding: 150px 10%; text-align: center; border-top: 1px solid #111; }
         .email-box { display: flex; max-width: 500px; margin: 40px auto; border: 1px solid #222; }
         .email-box input { background: transparent; border: none; padding: 20px; color: #fff; flex: 1; outline: none; }
         .email-box button { background: var(--orange); border: none; color: #fff; padding: 0 35px; text-transform: uppercase; font-weight: bold; cursor: pointer; }
-
-        .social-icons { margin-top: 40px; display: flex; gap: 30px; justify-content: center; }
-        .social-icons svg { stroke: var(--orange); transition: 0.4s; }
-        .social-icons a:hover svg { stroke: #fff; transform: translateY(-5px); }
-
-        footer { padding: 60px 5%; text-align: center; font-size: 0.55rem; color: #111; letter-spacing: 5px; border-top: 1px solid #050505; }
-
-        @media (max-width: 768px) {
-            .image-row { grid-template-columns: 1fr; }
-            .img-wrapper { height: 500px; }
-            .commandments-grid { columns: 1; text-align: left; }
-        }
+        footer { padding: 80px 5%; text-align: center; font-size: 0.6rem; color: #111; border-top: 1px solid #050505; letter-spacing: 4px; }
+        @media (max-width: 768px) { .image-row { grid-template-columns: 1fr; } .image-row img { height: 500px; } .commandments { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<a href="https://wa.me/2348166136524?text=Hello%20RAGS%20Lagos,%20I'm%20interested%20in%20the%20Vanguard%20Jersey." class="wa-float" target="_blank">
+<a href="https://wa.me/2348166136524?text=Hello%20RAGS%20Lagos,%20I'm%20interested%20in%20the%20latest%20collection." class="wa-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
 </a>
 
@@ -85,7 +48,6 @@
         <ul>
             <li><a href="#collections">Drops</a></li>
             <li><a href="#manifesto">Manifesto</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="https://instagram.com/ragslagos" target="_blank">IG</a></li>
         </ul>
     </nav>
@@ -94,116 +56,50 @@
 <section class="hero">
     <div class="hero-content">
         <h1>wear your becoming.</h1>
-        <p style="letter-spacing: 12px; font-size: 0.7rem; color: var(--orange); text-transform: uppercase;">Lagos Made. Globally Approved.</p>
+        <p style="letter-spacing: 10px; font-size: 0.7rem; color: var(--orange); text-transform: uppercase;">Lagos Made. Globally Approved.</p>
     </div>
 </section>
 
 <section class="section" id="collections">
-    
-    <h2 class="category-title">Jerseys</h2>
-    <div class="collection-container">
-        <h2 class="collection-title">RAGS Vanguard</h2>
-        <p class="collection-desc">Oversized Street Athletics. 2025 Series.</p>
-        <div class="image-row">
-            <div class="img-wrapper"><img src="https://i.postimg.cc/G3y2V6pb/4FDBFDBF-4B7C-451D-B00C-551C1A431F6C.jpg" alt="Vanguard 1"></div>
-            <div class="img-wrapper"><img src="https://i.postimg.cc/sfhXqb22/83B3427E-BB88-4CEB-A000-B229A9103640.jpg" alt="Vanguard 2"></div>
-            <div class="img-wrapper"><img src="https://i.postimg.cc/XNCJmtvq/B2B83ED6-4C75-4934-886E-B40723931890.jpg" alt="Vanguard 3"></div>
-        </div>
-        <div class="image-row" style="grid-template-columns: repeat(2, 1fr);">
-            <div class="img-wrapper" style="height: 400px;"><img src="https://i.postimg.cc/jdY5bvWS/IMG-5640.jpg" alt="Vanguard Detail 1"></div>
-            <div class="img-wrapper" style="height: 400px;"><img src="https://i.postimg.cc/bYtJW4vG/IMG-5645.png" alt="Vanguard Detail 2"></div>
-        </div>
-    </div>
-
-    <h2 class="category-title">Jeans</h2>
+    <h2 class="category-title">JEANS</h2>
     <div class="collection-container">
         <h2 class="collection-title">RAGS Sandstorm</h2>
         <p class="collection-desc">Earth Tones. Limited Craft.</p>
         <div class="image-row">
-            <div class="img-wrapper"><img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg" alt="Sandstorm 1"></div>
-            <div class="img-wrapper"><img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg" alt="Sandstorm 2"></div>
-            <div class="img-wrapper"><img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg" alt="Sandstorm 3"></div>
+            <img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg" alt="Sandstorm 1">
+            <img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg" alt="Sandstorm 2">
+            <img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg" alt="Sandstorm 3">
         </div>
     </div>
-
     <div class="collection-container">
         <h2 class="collection-title">RAGS Rockstar</h2>
         <p class="collection-desc">Premium Raw Denim. Signature Kult Series.</p>
         <div class="image-row">
-            <div class="img-wrapper"><img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg" alt="Rockstar 1"></div>
-            <div class="img-wrapper"><img src="https://tJFdLhd1/IMG-5394.jpg" alt="Rockstar 2"></div>
-            <div class="img-wrapper"><img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg" alt="Rockstar 3"></div>
-        </div>
-    </div>
-
-    <div class="collection-container">
-        <h2 class="collection-title">RAGS dRAGony</h2>
-        <p class="collection-desc">Archive Collection. Hand-Finished Craft.</p>
-        <div class="image-row">
-            <div class="img-wrapper">
-                <span class="sold-out-badge">Sold Out</span>
-                <div class="sold-out-overlay"></div>
-                <img src="https://i.postimg.cc/6p5zMrhq/IMG-5637.png" alt="dRAGony 1">
-            </div>
-            <div class="img-wrapper">
-                <span class="sold-out-badge">Sold Out</span>
-                <div class="sold-out-overlay"></div>
-                <img src="https://i.postimg.cc/g2k4gVKp/IMG-5635.jpg" alt="dRAGony 2">
-            </div>
-            <div class="img-wrapper">
-                <span class="sold-out-badge">Sold Out</span>
-                <div class="sold-out-overlay"></div>
-                <img src="https://i.postimg.cc/XY7xsfgv/IMG-5638.png" alt="dRAGony 3">
-            </div>
+            <img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg" alt="Rockstar 1">
+            <img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg" alt="Rockstar 2"> <img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg" alt="Rockstar 3">
         </div>
     </div>
 </section>
 
-<section class="section" id="manifesto">
-    <div class="text-block">
-        <h2>Manifesto</h2>
-        <p style="font-family: 'Georgia', serif; font-style: italic;">"RAGS Lagos was built for people who refuse to shrink themselves. Inspired by Lagos grit and global dreams—the ones who create their own lane and wear their identity like armor."</p>
-    </div>
-</section>
-
-<section class="section">
-    <div class="text-block">
-        <h2 style="color:var(--orange)">The Commandments</h2>
-        <div class="commandments-grid">
-            <p><b>01.</b> We do not copy. We create.</p>
-            <p><b>02.</b> Quality first — always.</p>
-            <p><b>03.</b> If everyone has it, we don’t want it.</p>
-            <p><b>04.</b> Confidence is the dress code.</p>
-            <p><b>05.</b> Lagos creativity, premium standards.</p>
-            <p><b>06.</b> No loud desperation. Quiet excellence only.</p>
-            <p><b>07.</b> Every piece must feel like a story.</p>
-            <p><b>08.</b> Authenticity over hype.</p>
-            <p><b>09.</b> Community, not crowd.</p>
-            <p><b>10.</b> Outlive the trends.</p>
+<section class="section" id="manifesto"> <div class="manifesto-box">
+        <h2 class="category-title">Manifesto</h2>
+        <p class="manifesto-text">"RAGS Lagos was built for people who refuse to shrink themselves. Inspired by Lagos grit and global dreams—the ones who create their own lane and wear their identity like armor."</p>
+        
+        <div class="commandments">
+            <div class="command"><strong>01.</strong> We do not copy. We create.</div>
+            <div class="command"><strong>02.</strong> Quality first — always.</div>
+            <div class="command"><strong>03.</strong> If everyone has it, we don’t want it.</div>
+            <div class="command"><strong>04.</strong> Confidence is the dress code.</div>
+            <div class="command"><strong>05.</strong> Lagos creativity, premium standards.</div>
         </div>
-    </div>
-</section>
-
-<section class="section" id="about" style="background:#050505;">
-    <div class="text-block">
-        <h2>About The House</h2>
-        <p style="color:#888;">RAGS Lagos is a premium Lagos-born denim brand creating limited, high-quality pieces for quiet rebels, creatives, and leaders becoming the best version of themselves.</p>
     </div>
 </section>
 
 <section class="kult-signup" id="join">
-    <h2 style="font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 10px; font-weight: normal;">Join the Kult</h2>
+    <h2 style="font-family: 'Georgia', serif; font-size: 2.2rem; margin-bottom: 15px; font-weight: normal;">Join the Kult</h2>
     <div class="email-box">
-        <input type="email" placeholder="EMAIL ADDRESS">
-        <button>JOIN</button>
-    </div>
-    <div class="social-icons">
-        <a href="https://instagram.com/ragslagos" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-        <a href="https://tiktok.com/@ragslagos" target="_blank">
-            <svg style="stroke:none; fill:var(--orange)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path d="M33.3 10.2c1.7 1.6 3.8 2.8 6.2 3.1v6.5c-2.4-.1-4.7-.8-6.8-2v13.5c0 12.1-13.2 15.8-19 8.1-4-5.3-2-14.6 6.6-16v6.6c-3.7 1.1-3 6.3.9 6.3 2.2 0 3.9-1.8 3.9-4V6.5h8.2v3.7z"/></svg>
-        </a>
+        <input type="email" placeholder="Email Address">
+        <button>Submit</button>
     </div>
 </section>
 

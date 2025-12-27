@@ -28,7 +28,18 @@
         .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-family: 'Georgia', serif; font-style: italic; margin-bottom: 10px; text-transform: lowercase; font-weight: normal; }
 
         .section { padding: 100px 5%; }
-        .section-label { color: var(--orange); letter-spacing: 8px; text-transform: uppercase; font-size: 0.7rem; margin-bottom: 60px; display: block; text-align: center; }
+        
+        /* CATEGORY HEADER */
+        .category-title { 
+            font-size: 4rem; 
+            letter-spacing: 20px; 
+            text-align: center; 
+            color: #111; 
+            font-weight: 900; 
+            margin-bottom: 60px;
+            border-bottom: 1px solid #111;
+            padding-bottom: 20px;
+        }
 
         .collection-container { margin-bottom: 120px; }
         .collection-title { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 10px; text-align: left; padding-left: 5%; color: #fff; font-weight: normal; }
@@ -46,7 +57,7 @@
         @media (max-width: 768px) {
             .image-row { grid-template-columns: 1fr; gap: 30px; }
             .image-row img { height: 500px; }
-            .hero { height: 80vh; }
+            .category-title { font-size: 2rem; letter-spacing: 10px; }
         }
 
         .kult-signup { background: #050505; border-top: 1px solid #1a1a1a; padding: 120px 10%; text-align: center; }
@@ -64,7 +75,7 @@
     <img src="https://i.postimg.cc/mD8fT9jL/RAGS-LOGO.png" alt="RAGS LAGOS" class="logo-img">
     <nav>
         <ul>
-            <li><a href="#collections">The Drops</a></li>
+            <li><a href="#collections">Drops</a></li>
             <li><a href="https://instagram.com/ragslagos" target="_blank">Instagram</a></li>
             <li style="border: 1px solid var(--orange); padding: 5px 15px;"><a href="#join" style="color: var(--orange);">Join Kult</a></li>
         </ul>
@@ -79,30 +90,34 @@
 </section>
 
 <section class="section" id="collections">
-    <span class="section-label">Selected Releases</span>
-
-    <div class="collection-container">
-        <h2 class="collection-title">RAGS Rockstar</h2>
-        <p class="collection-desc">Premium Raw Denim. Signature Kult Series.</p>
-        <div class="image-row">
-            <img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg" alt="Rockstar Main"> <img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg" alt="Rockstar Detail">
-            <img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg" alt="Rockstar Look">
-        </div>
-    </div>
+    
+    <h2 class="category-title">JEANS</h2>
 
     <div class="collection-container">
         <h2 class="collection-title">RAGS Sandstorm</h2>
         <p class="collection-desc">Earth Tones. Limited Craft. Unapologetic Identity.</p>
         <div class="image-row">
-            <img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg" alt="Sandstorm Main"> <img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg" alt="Sandstorm Detail">
-            <img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg" alt="Sandstorm Look">
+            <img src="https://i.postimg.cc/tJFdLhd1/IMG-5394.jpg" alt="Sandstorm 1">
+            <img src="https://i.postimg.cc/nzyYRdmv/IMG-5398.jpg" alt="Sandstorm 2">
+            <img src="https://i.postimg.cc/FHwRJ2Xc/IMG-5316.jpg" alt="Sandstorm 3">
         </div>
     </div>
+
+    <div class="collection-container">
+        <h2 class="collection-title">RAGS Rockstar</h2>
+        <p class="collection-desc">Premium Raw Denim. Signature Kult Series.</p>
+        <div class="image-row">
+            <img src="https://i.postimg.cc/L5jkrzkZ/IMG-5196.jpg" alt="Rockstar 1">
+            <img src="https://i.postimg.cc/RFkQsPt6/IMG-5321.jpg" alt="Rockstar 2">
+            <img src="https://i.postimg.cc/7hS1pg12/IMG-5392.jpg" alt="Rockstar 3">
+        </div>
+    </div>
+
 </section>
 
 <section class="kult-signup" id="join">
     <h2 style="font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 15px; font-weight: normal;">Join the Kult</h2>
-    <p style="color: #555; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem;">Enter the inner circle for limited drops.</p>
+    <p style="color: #555; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem;">Enter for secret releases.</p>
     <div class="email-box">
         <input type="email" placeholder="Email Address">
         <button>Submit</button>
@@ -113,7 +128,7 @@
 
 <footer>
     <img src="https://i.postimg.cc/mD8fT9jL/RAGS-LOGO.png" alt="RAGS LAGOS" style="height: 35px; margin-bottom: 30px; opacity: 0.2;">
-    <p>© 2025 RAGS LAGOS. NOT FOR FOLLOWERS. FOR THE ONES BECOMING.</p>
+    <p>© 2025 RAGS LAGOS. FOR LEGENDS IN REAL TIME.</p>
 </footer>
 
 </body>

@@ -82,7 +82,6 @@
             gap: 15px; 
         }
 
-        /* ZOOM WRAPPER */
         .img-wrapper { 
             overflow: hidden; 
             border: 1px solid #1a1a1a; 
@@ -104,7 +103,6 @@
             filter: saturate(1.1); 
         }
 
-        /* OUT OF STOCK TAG */
         .stock-tag {
             position: absolute; top: 15px; right: 15px;
             background: rgba(0,0,0,0.85); color: var(--orange);
@@ -113,59 +111,56 @@
             z-index: 10;
         }
 
-        .manifesto-box { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            text-align: center; 
+        .kult-signup {
+            background: #050505;
+            padding: 100px 8%;
+            text-align: center;
+            border-top: 1px solid #111;
         }
 
-        .manifesto-text { 
-            font-family: 'Georgia', serif; 
-            font-size: 1.4rem; 
-            font-style: italic; 
-            color: #ccc; 
-            margin-bottom: 60px; 
+        .kult-signup h2 { font-family: 'Georgia', serif; font-size: 2.5rem; margin-bottom: 20px; font-style: italic; }
+        
+        .signup-form {
+            max-width: 500px;
+            margin: 40px auto;
+            display: flex;
+            gap: 10px;
         }
 
-        .commandments-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px; 
-            text-align: left; 
+        .signup-form input {
+            flex: 1;
+            background: transparent;
+            border: 1px solid #222;
+            padding: 15px;
+            color: #fff;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            outline: none;
         }
 
-        .cmd-item { 
-            border-left: 2px solid var(--orange); 
-            padding-left: 20px; 
+        .signup-form button {
+            background: var(--orange);
+            color: #000;
+            border: none;
+            padding: 0 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .cmd-item span { 
-            color: var(--orange); 
-            font-weight: bold; 
-            font-size: 0.8rem; 
-            display: block; 
-        }
+        .signup-form button:hover { background: #fff; }
 
-        .cmd-item p { 
-            font-size: 0.85rem; 
-            color: #bbb; 
-        }
+        .manifesto-box { max-width: 900px; margin: 0 auto; text-align: center; }
+        .manifesto-text { font-family: 'Georgia', serif; font-size: 1.4rem; font-style: italic; color: #ccc; margin-bottom: 60px; }
+        .commandments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
+        .cmd-item { border-left: 2px solid var(--orange); padding-left: 20px; }
+        .cmd-item span { color: var(--orange); font-weight: bold; font-size: 0.8rem; display: block; }
+        .cmd-item p { font-size: 0.85rem; color: #bbb; }
 
-        .wa-float { 
-            position: fixed; 
-            width: 60px; 
-            height: 60px; 
-            bottom: 30px; 
-            right: 30px; 
-            background-color: #25d366; 
-            border-radius: 50px; 
-            z-index: 2000; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-        }
-
+        .wa-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; z-index: 2000; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .wa-icon { width: 32px; height: 32px; }
 
         footer { 
@@ -180,7 +175,8 @@
         @media (max-width: 768px) {
             .commandments-grid { grid-template-columns: 1fr; }
             .image-row img { height: 420px; }
-            .category-title { font-size: 2rem; letter-spacing: 10px; }
+            .signup-form { flex-direction: column; }
+            .signup-form button { padding: 15px; }
         }
     </style>
 </head>
@@ -380,6 +376,16 @@
     </div>
 </section>
 
+<section class="kult-signup">
+    <h2>join the kult.</h2>
+    <p style="letter-spacing: 5px; font-size: 0.6rem; text-transform: uppercase; color: #444;">Early Drop Access Only.</p>
+    
+    <form class="signup-form" action="https://formspree.io/f/xeeqkkna" method="POST">
+        <input type="email" name="email" placeholder="ENTER YOUR EMAIL" required>
+        <button type="submit">JOIN</button>
+    </form>
+</section>
+
 <section class="section" id="manifesto">
     <div class="manifesto-box">
         <h2 class="category-title" style="border:none;">The Manifesto</h2>
@@ -401,6 +407,23 @@
 <footer>
     © RAGS LAGOS — Wear Your Becoming
 </footer>
+
+<script>
+  const form = document.querySelector('.signup-form');
+  form.onsubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      alert("Welcome to the Kult. You're on the list.");
+      form.reset();
+    }
+  };
+</script>
 
 </body>
 </html>
